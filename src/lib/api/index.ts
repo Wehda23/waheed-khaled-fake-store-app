@@ -17,6 +17,10 @@
  * to avoid throttle simply add this option to method api.login("username", "password", { skipThrottle: true });
  * This file serves as the central hub for API interactions in the application.
  * Feel free to extend the `FakeStoreApi` class with more methods as needed.
+ * Additional Thoughts:
+ * 1) I hope this good enough for me to reuse in other projects as i can see a way to use this in microservices CRM, Inventory, HR systems
+ * 2) Most likely if communicating with different backends we can create new files with new declarations of coreClient(Axios, Fetch) & FakeStoreAPI.. (HRStoreAPI, InventoryStoreAPI...)
+ * 3) We may consider the building layers between coreClient & API to be middlewares that can be included/execluded from any API client.
 */
 
 import { AxiosHttpClient } from "@/lib/http/axiosClient";
