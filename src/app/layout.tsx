@@ -1,6 +1,11 @@
+"use client";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Navbar from "@/components/Layout/Navbar";
 
 const geistSans = Geist({
@@ -36,6 +41,17 @@ export default function RootLayout({
         {/* Will be using redux tools for product sorting and handling.. since there is alot of update to states.*/}
         <Navbar />
         {children}
+
+
+        {/* Where we add a footer */}
+
+
+        {/* Global Toast Container */}
+        <ToastContainer
+          position="top-right"
+          autoClose={2500}
+          hideProgressBar={false}
+        />
       </body>
     </html>
   );

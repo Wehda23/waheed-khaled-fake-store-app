@@ -8,6 +8,7 @@ export type HttpMethod = 'GET' | 'POST' | 'PUT' /* | 'DELETE' */;
 export type HttpRequestConfig = {
     headers?: Record<string, string>;
     params?: Record<string, string | number | boolean | undefined>;
+    skipThrottle?: boolean;
 }
 
 export type  HttpResponse<T> = {
@@ -24,11 +25,14 @@ export type  HttpResponse<T> = {
  * 4) <Delete> There is no delete functionality <Required> or <Optional> Exist within the task.
  */
 export interface HttpClient {
-    request<T>(method: HttpMethod, url: string, config?: HttpRequestConfig, body?: unknown): Promise<HttpResponse<T>>;
+  request<T>(
+    method: HttpMethod,
+    url: string,
+    body?: unknown,
+    config?: HttpRequestConfig
+  ): Promise<HttpResponse<T>>;
 
-    // Retrieving data
-    get<T>(url: string, config?: HttpRequestConfig): Promise<HttpResponse<T>>;
-    // Post is for creating a new instance.., Put is for updating an existing instance.
-    post<T>(url: string, body?: unknown, config?: HttpRequestConfig): Promise<HttpResponse<T>>;
-    put<T>(url: string, body?: unknown, config?: HttpRequestConfig): Promise<HttpResponse<T>>;
+  get<T>(url: string, config?: HttpRequestConfig): Promise<HttpResponse<T>>;
+  post<T>(url: string, body?: unknown, config?: HttpRequestConfig): Promise<HttpResponse<T>>;
+  put<T>(url: string, body?: unknown, config?: HttpRequestConfig): Promise<HttpResponse<T>>;
 }
