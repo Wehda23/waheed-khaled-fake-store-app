@@ -7,6 +7,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Navbar from "@/components/Layout/Navbar";
+import { AuthProvider } from "@/components/Authentication/Provider/AuthProvider";
+import AuthInitTrigger from "@/components/Authentication/Provider/AuthInitTrigger";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,25 +35,24 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/*
-          Wrap later with Authentication useContext
-          practically in this app there is no much updates in auth
-          so using useContext is better for reads and low updates. user login/logout..
-        */}
-        {/* Will be using redux tools for product sorting and handling.. since there is alot of update to states.*/}
-        <Navbar />
-        {children}
+        <AuthProvider>
+          {/* Initialize Auth Here */}
+          <AuthInitTrigger />
+          {/* Will be using redux tools for product sorting and handling.. since there is alot of update to states.*/}
+          <Navbar />
+          {children}
 
 
-        {/* Where we add a footer */}
+          {/* Where we add a footer */}
 
 
-        {/* Global Toast Container */}
-        <ToastContainer
-          position="top-right"
-          autoClose={2500}
-          hideProgressBar={false}
-        />
+          {/* Global Toast Container */}
+          <ToastContainer
+            position="top-right"
+            autoClose={2500}
+            hideProgressBar={false}
+          />
+        </AuthProvider>
       </body>
     </html>
   );
