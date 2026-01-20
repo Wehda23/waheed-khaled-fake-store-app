@@ -14,6 +14,7 @@
  * import { api } from "@/lib/api";
  * api.getProducts().then(products => console.log(products));
  * api.login('username', 'password').then(response => console.log(response.token));
+ * to avoid throttle simply add this option to method api.login("username", "password", { skipThrottle: true });
  * This file serves as the central hub for API interactions in the application.
  * Feel free to extend the `FakeStoreApi` class with more methods as needed.
 */
