@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Layout/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +28,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/*
+          Wrap later with Authentication useContext
+          practically in this app there is no much updates in auth
+          so using useContext is better for reads and low updates. user login/logout..
+        */}
+        {/* Will be using redux tools for product sorting and handling.. since there is alot of update to states.*/}
+        <Navbar />
         {children}
       </body>
     </html>
