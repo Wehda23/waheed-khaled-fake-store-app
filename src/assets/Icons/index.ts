@@ -1,0 +1,1 @@
+export {default as StoreLogo} from "./store-logo.png";

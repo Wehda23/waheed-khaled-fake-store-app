@@ -37,3 +37,22 @@ export function getStatusCode(err: unknown): number | undefined {
     }
     return undefined;
 }
+
+export function getErrorMessage(err: unknown): string {
+    if (typeof err === "string") return err;
+    if (err instanceof Error) return err.message;
+
+    if (typeof err === "object" && err !== null) {
+        const anyErr = err as unknown & { response?: { data?: { message?: string } }; message?: string };
+
+        // axios-style: err.response.data.message
+        const msg1 = anyErr.response?.data?.message;
+        if (typeof msg1 === "string") return msg1;
+
+        // generic: err.message
+        const msg2 = anyErr.message;
+        if (typeof msg2 === "string") return msg2;
+    }
+
+    return "Failed to fetch products";
+}

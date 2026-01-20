@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
 import { ToastContainer } from "react-toastify";
@@ -8,16 +8,16 @@ import "react-toastify/dist/ReactToastify.css";
 import Navbar from "@/components/Layout/Navbar";
 import { AuthProvider } from "@/components/Authentication/Provider/AuthProvider";
 import AuthInitTrigger from "@/components/Authentication/Provider/AuthInitTrigger";
+import AppProviders from "./providers";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+
+const poppins = Poppins({
   subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -32,26 +32,28 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${poppins.variable} antialiased`}
       >
-        <AuthProvider>
-          {/* Initialize Auth Here */}
-          <AuthInitTrigger />
-          {/* Will be using redux tools for product sorting and handling.. since there is alot of update to states.*/}
-          <Navbar />
-          {children}
+        <AppProviders>
+          <AuthProvider>
+            {/* Initialize Auth Here */}
+            <AuthInitTrigger />
+            {/* Will be using redux tools for product sorting and handling.. since there is alot of update to states.*/}
+            <Navbar />
+            {children}
 
 
-          {/* Where we add a footer */}
+            {/* Where we add a footer */}
 
 
-          {/* Global Toast Container */}
-          <ToastContainer
-            position="top-right"
-            autoClose={2500}
-            hideProgressBar={false}
-          />
-        </AuthProvider>
+            {/* Global Toast Container */}
+            <ToastContainer
+              position="top-right"
+              autoClose={2500}
+              hideProgressBar={false}
+            />
+          </AuthProvider>
+        </AppProviders>
       </body>
     </html>
   );

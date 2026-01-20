@@ -3,23 +3,24 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --color-purple: #1F4FD8;
+  --color-orange: #FF8A34;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+
+  /* Use Poppins as your sans font */
+  --font-sans: var(--font-poppins);
+
+  /* Keep your mono as-is (or change it later) */
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }

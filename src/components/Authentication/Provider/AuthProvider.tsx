@@ -27,7 +27,7 @@ type AuthState = {
 const AuthContext = createContext<AuthState | null>(null);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [token, setToken] = useState<string | null>(null); 
+  const [token, setToken] = useState<string | null>(null);
   const [initializing, setInitializing] = useState(true); // to track initialization for loading states
 
   // Load token from storage on initialization
