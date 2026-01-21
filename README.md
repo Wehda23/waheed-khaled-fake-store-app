@@ -185,25 +185,3 @@ http://localhost:3000
 * Architecture is designed to scale beyond this demo
 
 Thank you for reviewing this submission 🙌
-
-````
-
----
-
-## ✅ Final tips before submission
-- Replace the placeholders with real links
-- Add screenshots (optional but nice)
-- Make sure:
-  ```bash
-  npm run build
-````
-
-passes locally before deploying
-
-If you want, I can:
-
-* Review your repo structure before submission
-* Tighten wording to match a specific company style
-* Help you write the **email reply** to submit the task
-
-You did solid engineering work here 👏
