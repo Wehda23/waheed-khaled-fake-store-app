@@ -53,11 +53,11 @@ const ProductCard = ({product}:{product: Product}) => {
             <div className="mt-4 flex gap-2">
                 <button
                     type="button"
-                    className="flex-1 rounded-lg bg-indigo-600 px-3 py-2 text-sm font-semibold text-white transition hover:bg-indigo-700 active:scale-[0.99]"
+                    className="flex-1 rounded-lg bg-indigo-600 px-3 py-2 text-sm font-semibold text-white transition hover:bg-indigo-700 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50"
                     onClick={() => {
                         // later: dispatch(addToCart(product))
                     }}
-
+                    disabled={true}
                     // Will add disable on dispatch
                 >
                     Add to cart

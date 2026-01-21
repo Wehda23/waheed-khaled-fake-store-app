@@ -2,7 +2,7 @@ import type { HttpClient } from "@/lib/http/types";
 import type { HttpRequestConfig } from "@/lib/http/types";
 import { Product } from "@/types/product.types";
 
-export type NewProduct = Omit<Product, "id">;
+export type NewProduct = Omit<Product, "id" | "rating">;
 
 
 export class FakeStoreApi {
