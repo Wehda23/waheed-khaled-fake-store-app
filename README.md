@@ -1,1 +1,1 @@
-# Bost Frontend Assessment by (Waheed Khaled)
+# Bosta Frontend Assessment by (Waheed Khaled)
