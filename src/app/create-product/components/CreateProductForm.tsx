@@ -6,12 +6,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-toastify";
 import { api } from "@/lib/api";
 import { newProductSchema, NewProductFormValues } from "@/lib/validation/product.schema";
-import { useRouter } from "next/navigation";
 import { getErrorMessage } from "@/lib/http/errors";
 import Link from "next/link";
 
 export default function CreateProductForm() {
-    const router = useRouter();
     const [submitting, setSubmitting] = useState(false);
 
     const form = useForm<NewProductFormValues>({
@@ -30,15 +28,9 @@ export default function CreateProductForm() {
         setSubmitting(true);
 
         try {
-            const response = await api.createProduct(values);
-            toast.success("Product created successfully ✅");
-
-
+            await api.createProduct(values);
+            toast.success("Product created successfully!");
             form.reset();
-
-            if (response?.data?.id) {
-                router.push(`/${response.data.id}`);
-            }
         } catch (error: unknown) {
             const message = getErrorMessage(error)
             toast.error(message);
