@@ -9,7 +9,7 @@ This project was built as a technical task to demonstrate **frontend architectur
 ## 🚀 Live Demo
 
 👉 **Live Application:**
-[ADD NETLIFY / VERCEL LINK HERE]
+[https://waheed-bosta-assesment.netlify.app](https://waheed-bosta-assesment.netlify.app)
 
 ---
 
