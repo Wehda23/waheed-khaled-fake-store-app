@@ -22,7 +22,7 @@ export const selectProductsView = createSelector(
         const direction = sortDir === "asc" ? 1 : -1;
         const sorted = [...filtered].sort((a, b) => {
         if (sortField === "price") return (a.price - b.price) * direction;
-        return a.title.localeCompare(b.title) * direction;
+        return a.category.localeCompare(b.category) * direction;
         });
 
         // Pagination
